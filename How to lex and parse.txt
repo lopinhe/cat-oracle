@@ -1,0 +1,6 @@
+ 
+ ~$ flex cat_oracle.l
+
+ ~$ bison -d cat_oracle.y
+
+  ~$ gcc -o cat_oracle cat_oracle.tab.c lex.yy.c -lfl
