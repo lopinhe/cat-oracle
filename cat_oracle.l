@@ -26,6 +26,6 @@
 \?                 {return QUESTION; }
 
 \n                 { return EOL; }
-.                  { /* Ignore all other characters */ }
+.                  {  }
 
 %%

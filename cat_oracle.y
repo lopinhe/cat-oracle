@@ -14,10 +14,12 @@ void yyerror(const char* msg);
 
 %%
 
-start: { printf("\033[2J\033[H");
+start: { printf("\033[2J\033[H");   // clear screen
+         printf("\033[1;36m");      // change terminal color to cyan
+
         printf("\n Welcome to the \n");
         printf("    __   ____  ______       ___   ____    ____     __  _        ___ \n");
-        printf("   /  ] /    ||      |     /   \\ |   \\   /    |   /  ]| |      /  _]\n");
+        printf("   /  ] /    ||      |     /   \\ |    \\  /    |   /  ]| |      /  _]\n");
         printf("  /  / |  o  ||      |    |     ||  D  )|  o  |  /  / | |     /  [_ \n");
         printf(" /  /  |     ||_|  |_|    |  O  ||    / |     | /  /  | |___ |    _]\n");
         printf("/   \\_ |  _  |  |  |      |     ||    \\ |  _  |/   \\_ |     ||   [_ \n");
@@ -55,25 +57,20 @@ question: QUESTION EOL {
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
+    //Animation
     const char* spinner[] = {
 
-      "ᓚᘏᗢ_", "ᓭᘏᗢ__", "ᓚᘏᗢ_", ". . ᓚᗢ .", ". . . ᗢ ᘐ", "_ᗢᘐᓗ", "__ᗢᘐᓯ", "_ᗢᘐᓗ", "ᗢᓗ . . .", "ᘏ ᗢ_ . ."
+      "ᓚᘏᗢ_", "ᓭᘏᗢ__", "ᓚᘏᗢ_", ". . ᓚᗢ .", ". . . ᗢ ᘐ", "_ᗢᘐᓗ", "__ᗢᘐᓯ", "_ᗢᘐᓗ", "ᗢᓗ . . .", "ᘏᗢ_ . ."
     };
 
-
-    // The number of frames in the animation
     const int numFrames = 10;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
@@ -94,7 +91,6 @@ question_what: WHAT QUESTION EOL {
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -108,19 +104,14 @@ question_what: WHAT QUESTION EOL {
     };
 
 
-
-    // The number of frames in the animation
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
@@ -140,7 +131,6 @@ question_who: WHO QUESTION EOL {
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -154,18 +144,14 @@ question_who: WHO QUESTION EOL {
     };
 
 
-    // The number of frames in the animation
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
@@ -182,7 +168,6 @@ question_when: WHEN QUESTION EOL {
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -197,18 +182,14 @@ question_when: WHEN QUESTION EOL {
 
 
 
-    // The number of frames in the animation
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
@@ -231,7 +212,6 @@ question_where: WHERE QUESTION EOL {
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -244,19 +224,14 @@ question_where: WHERE QUESTION EOL {
     "ᓚᘏᗢ_  ᓄ"
     };
 
-
-    // The number of frames in the animation
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
@@ -275,7 +250,6 @@ question_how: HOW QUESTION EOL {
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -289,18 +263,15 @@ question_how: HOW QUESTION EOL {
     };
 
 
-    // The number of frames in the animation
+
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);

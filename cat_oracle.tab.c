@@ -511,10 +511,10 @@ static const yytype_int8 yytranslate[] =
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
-static const yytype_int16 yyrline[] =
+static const yytype_uint8 yyrline[] =
 {
-       0,    17,    17,    17,    37,    38,    39,    40,    41,    42,
-      43,    46,    83,   130,   175,   220,   267
+       0,    17,    17,    17,    39,    40,    41,    42,    43,    44,
+      45,    48,    80,   121,   161,   201,   242
 };
 #endif
 
@@ -1087,9 +1087,11 @@ yyreduce:
   case 2: /* $@1: %empty  */
 #line 17 "cat_oracle.y"
        { printf("\033[2J\033[H");
+         printf("\033[1;36m");
+
         printf("\n Welcome to the \n");
         printf("    __   ____  ______       ___   ____    ____     __  _        ___ \n");
-        printf("   /  ] /    ||      |     /   \\ |   \\   /    |   /  ]| |      /  _]\n");
+        printf("   /  ] /    ||      |     /   \\ |    \\  /    |   /  ]| |      /  _]\n");
         printf("  /  / |  o  ||      |    |     ||  D  )|  o  |  /  / | |     /  [_ \n");
         printf(" /  /  |     ||_|  |_|    |  O  ||    / |     | /  /  | |___ |    _]\n");
         printf("/   \\_ |  _  |  |  |      |     ||    \\ |  _  |/   \\_ |     ||   [_ \n");
@@ -1104,11 +1106,11 @@ yyreduce:
         printf("                     |,4-  ) )-,_. ,\\ (  `'-'\n");
         printf("                    '---''(_/--'  `-'\\_)  \n\n");
         printf("Ask me about your Future!\n\n");}
-#line 1108 "cat_oracle.tab.c"
+#line 1110 "cat_oracle.tab.c"
     break;
 
   case 11: /* question: QUESTION EOL  */
-#line 46 "cat_oracle.y"
+#line 48 "cat_oracle.y"
                        {
     const char* sentences[] = {
         "Meow!\n",
@@ -1121,34 +1123,29 @@ yyreduce:
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
+    //Animation
     const char* spinner[] = {
 
-      "ᓚᘏᗢ_", "ᓭᘏᗢ__", "ᓚᘏᗢ_", ". . ᓚᗢ .", ". . . ᗢ ᘐ", "_ᗢᘐᓗ", "__ᗢᘐᓯ", "_ᗢᘐᓗ", "ᗢᓗ . . .", "ᘏ ᗢ_ . ."
+      "ᓚᘏᗢ_", "ᓭᘏᗢ__", "ᓚᘏᗢ_", ". . ᓚᗢ .", ". . . ᗢ ᘐ", "_ᗢᘐᓗ", "__ᗢᘐᓯ", "_ᗢᘐᓗ", "ᗢᓗ . . .", "ᘏᗢ_ . ."
     };
 
-
-    // The number of frames in the animation
     const int numFrames = 10;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
 }
-#line 1148 "cat_oracle.tab.c"
+#line 1145 "cat_oracle.tab.c"
     break;
 
   case 12: /* question_what: WHAT QUESTION EOL  */
-#line 83 "cat_oracle.y"
+#line 80 "cat_oracle.y"
                                  {
         const char* sentences[] = {
             "What's it to you? Find it yourself.\n",
@@ -1163,7 +1160,6 @@ yyreduce:
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -1177,28 +1173,23 @@ yyreduce:
     };
 
 
-
-    // The number of frames in the animation
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
 }
-#line 1198 "cat_oracle.tab.c"
+#line 1189 "cat_oracle.tab.c"
     break;
 
   case 13: /* question_who: WHO QUESTION EOL  */
-#line 130 "cat_oracle.y"
+#line 121 "cat_oracle.y"
                                {
         const char* sentences[] = {
             "Ah, a new companion approaches, bearing treats and belly rubs, I hope. What is that you want again?\n",
@@ -1212,7 +1203,6 @@ yyreduce:
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -1226,27 +1216,23 @@ yyreduce:
     };
 
 
-    // The number of frames in the animation
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
 }
-#line 1246 "cat_oracle.tab.c"
+#line 1232 "cat_oracle.tab.c"
     break;
 
   case 14: /* question_when: WHEN QUESTION EOL  */
-#line 175 "cat_oracle.y"
+#line 161 "cat_oracle.y"
                                  {
         const char* sentences[] = {
             "When you stop chasing your tail and embrace the purrfection of the present.\n",
@@ -1257,7 +1243,6 @@ yyreduce:
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -1272,27 +1257,23 @@ yyreduce:
 
 
 
-    // The number of frames in the animation
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
 }
-#line 1292 "cat_oracle.tab.c"
+#line 1273 "cat_oracle.tab.c"
     break;
 
   case 15: /* question_where: WHERE QUESTION EOL  */
-#line 220 "cat_oracle.y"
+#line 201 "cat_oracle.y"
                                    {
         const char* sentences[] = {
                 "Seek the comfiest cushions and softest blankets, there lies tranquility.\n",
@@ -1307,7 +1288,6 @@ yyreduce:
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -1320,28 +1300,23 @@ yyreduce:
     "ᓚᘏᗢ_  ᓄ"
     };
 
-
-    // The number of frames in the animation
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
 }
-#line 1341 "cat_oracle.tab.c"
+#line 1316 "cat_oracle.tab.c"
     break;
 
   case 16: /* question_how: HOW QUESTION EOL  */
-#line 267 "cat_oracle.y"
+#line 242 "cat_oracle.y"
                                {
         const char* sentences[] = {
             "To conquer obstacles, remember, even the grandest leaps start with a small purr.\n",
@@ -1353,7 +1328,6 @@ yyreduce:
     srand(time(NULL));
     int random_index = rand() % num_sentences;
 
-    // The frames of the animation as strings
     const char* spinner[] = {
     "ᓚᘏᗢ_  …ᓄ",
     "ᓚᘏᗢ_  ……ᓄ" ,
@@ -1367,27 +1341,24 @@ yyreduce:
     };
 
 
-    // The number of frames in the animation
+
     const int numFrames = 9;
 
     for (int frame = 0; frame < numFrames; ++frame) {
-        // Clear the screen and position cursor at the top-left corner
         printf("\033[2J\033[H");
 
-        // Print the spinner character
         printf("%s\n", spinner[frame % (sizeof(spinner) / sizeof(spinner[0]))]);
 
-        // Pause for a short duration to control the speed of the animation
-        usleep(100 * 2000); // 100 milliseconds
+        usleep(100 * 2000);
     }
 
     printf("%s\n", sentences[random_index]);
 }
-#line 1387 "cat_oracle.tab.c"
+#line 1358 "cat_oracle.tab.c"
     break;
 
 
-#line 1391 "cat_oracle.tab.c"
+#line 1362 "cat_oracle.tab.c"
 
       default: break;
     }
@@ -1580,7 +1551,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 311 "cat_oracle.y"
+#line 282 "cat_oracle.y"
 
 
 int main() {
@@ -1593,9 +1564,8 @@ void yyerror(const char* _) {
     fprintf(stderr, " ");
     printf("\033[2J\033[H");
     printf("Stop wasting my time, humanoid, begone!\n");
-    sleep(2);
+    sleep(1);
     printf("\033[2J\033[H");
-
 
 }
 
