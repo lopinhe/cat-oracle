@@ -1,3 +1,5 @@
+/* lexer for cat_oracle */
+
 %option noyywrap
 
 %{
@@ -29,3 +31,4 @@
 .                  {  }
 
 %%
+
