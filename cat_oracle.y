@@ -14,8 +14,8 @@ void yyerror(const char* msg);
 
 %%
 
-start: { printf("\033[2J\033[H");   // clear screen
-         printf("\033[1;36m");      // change terminal color to cyan
+start: { printf("\033[2J\033[H");                                   // clear screen
+         printf("\033[1;36m");                                      // change terminal color to cyan
 
         printf("\n Welcome to the \n");
         printf("    __   ____  ______       ___   ____    ____     __  _        ___ \n");
@@ -46,16 +46,16 @@ input:
     ;
 
 question: QUESTION EOL {
-    const char* sentences[] = {
+    const char* sentences[] = {                                     // array of sentences to choose from
         "Meow!\n",
         "Purr!\n",
         "Meow-meow!\n",
         "Meow-purr!\n",
         "Purr-meow!\n"
     };
-    int num_sentences = sizeof(sentences) / sizeof(sentences[0]);
+    int num_sentences = sizeof(sentences) / sizeof(sentences[0]); 
     srand(time(NULL));
-    int random_index = rand() % num_sentences;
+    int random_index = rand() % num_sentences;                      // randomize array-index
 
     //Animation
     const char* spinner[] = {
