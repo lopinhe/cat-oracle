@@ -1,4 +1,8 @@
- 
+
+// Terminal commands for compiling the cat_oracle with lflex and bison:
+
+
+
  ~$ flex cat_oracle.l
 
  ~$ bison -d cat_oracle.y
